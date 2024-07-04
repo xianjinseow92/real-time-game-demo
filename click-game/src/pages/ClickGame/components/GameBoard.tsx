@@ -21,7 +21,11 @@ const GameBoard = ({ role }: { role: string }) => {
   });
 
   const handleButtonClick = () => {
-    if (socket) socket.emit(EVENTS.CLICKED);
+    if (socket) {
+      setIsVisible(false); // IMMEDIATELY make button disappear
+      message.loading(`${role} got the button!`);
+      socket.emit(EVENTS.CLICKED);
+    }
   };
 
   useEffect(() => {
