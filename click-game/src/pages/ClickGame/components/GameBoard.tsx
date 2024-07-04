@@ -23,7 +23,6 @@ const GameBoard = ({ role }: { role: string }) => {
   const handleButtonClick = () => {
     if (socket) {
       setIsVisible(false); // IMMEDIATELY make button disappear
-      message.loading(`${role} got the button!`);
       socket.emit(EVENTS.CLICKED);
     }
   };
@@ -39,6 +38,7 @@ const GameBoard = ({ role }: { role: string }) => {
       // Hide button
       socket?.on(EVENTS.HIDE_BUTTON, () => {
         setIsVisible(false);
+        message.warning(`${role} got the button!`);
       });
 
       // Game Over
