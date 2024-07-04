@@ -28,9 +28,27 @@ let score2 = 0;
 // Spectators
 let allSpectators = [];
 
+// Max Score
+const MAX_SCORE = 3;
+
 const resetScores = () => {
   score1 = 0;
   score2 = 0;
+};
+
+const clearParticipants = () => {
+  player1 = null;
+  player2 = null;
+  allSpectators = [];
+};
+
+const resetGame = (io) => {
+  gameStarted = false;
+  // Reset Scores
+  resetScores();
+  clearParticipants();
+  // Emit game reset event
+  io.sockets.emit(EVENTS.GAME_RESET, "Game reset");
 };
 
 /**
@@ -75,6 +93,9 @@ io.on("connection", (socket) => {
 
   // Game interactions/State
   socket.on(EVENTS.CLICKED, () => {
+    if (!gameStarted) {
+      socket.emit(EVENTS.GAME_NOT_STARTED);
+    }
     if (gameStarted) {
       // Button Visibility
       io.sockets.emit(EVENTS.HIDE_BUTTON, { visible: false });
@@ -100,27 +121,23 @@ io.on("connection", (socket) => {
       // Player Score
       if (socket.id === player1) {
         score1++;
-        io.sockets.emit(EVENTS.UPDATE_SCORE, {
-          player1: score1,
-          player2: score2,
-        });
       } else if (socket.id === player2) {
         score2++;
-        io.sockets.emit(EVENTS.UPDATE_SCORE, {
-          player1: score1,
-          player2: score2,
-        });
+      }
+
+      io.sockets.emit(EVENTS.UPDATE_SCORE, {
+        player1: score1,
+        player2: score2,
+      });
+
+      if (score1 >= MAX_SCORE || score2 >= MAX_SCORE) {
+        const winner = score1 > score2 ? "Player 1" : "Player 2";
+        const loser = score1 < score2 ? "Player 1" : "Player 2";
+
+        io.sockets.emit(EVENTS.GAME_OVER, { winner, loser });
+        resetGame(io);
       }
     }
-  });
-
-  // Close game
-  socket.on(EVENTS.GAME_OVER, () => {
-    gameStarted = false;
-    // Clear players
-    player1 = null;
-    player2 = null;
-    io.sockets.emit(EVENTS.GAME_RESET, "Game reset");
   });
 
   // Handle disconnects
@@ -137,7 +154,6 @@ io.on("connection", (socket) => {
         (spectator) => spectator != socket.id
       );
     }
-    console.log("allspec: ", allSpectators);
 
     io.sockets.emit(EVENTS.PLAYERS_UPDATED, {
       player1: player1 ? "Player 1" : "",
