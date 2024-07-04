@@ -1,4 +1,8 @@
 {
+  "engines": {
+    "node": "16.20.2",
+    "npm": "8.19.4"
+  },
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js"
