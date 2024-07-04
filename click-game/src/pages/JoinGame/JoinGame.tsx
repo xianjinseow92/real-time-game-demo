@@ -34,6 +34,9 @@ const BeginGame = () => {
                 {`The first player to click the button successfully 3 times first
               wins.`}
               </Typography.Text>
+              <Typography.Text style={{ marginBottom: "10px" }}>
+                {`最先成功点击按钮3次的玩家获胜。`}
+              </Typography.Text>
               <Typography.Text>{`Good luck! :)`}</Typography.Text>
             </Flex>
           </Card>
