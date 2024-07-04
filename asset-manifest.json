@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/real-time-game-demo/static/css/main.5e2aba64.css",
-    "main.js": "/real-time-game-demo/static/js/main.27d9d62a.js",
+    "main.js": "/real-time-game-demo/static/js/main.b00449da.js",
     "static/js/453.0a148abd.chunk.js": "/real-time-game-demo/static/js/453.0a148abd.chunk.js",
     "index.html": "/real-time-game-demo/index.html",
     "main.5e2aba64.css.map": "/real-time-game-demo/static/css/main.5e2aba64.css.map",
-    "main.27d9d62a.js.map": "/real-time-game-demo/static/js/main.27d9d62a.js.map",
+    "main.b00449da.js.map": "/real-time-game-demo/static/js/main.b00449da.js.map",
     "453.0a148abd.chunk.js.map": "/real-time-game-demo/static/js/453.0a148abd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5e2aba64.css",
-    "static/js/main.27d9d62a.js"
+    "static/js/main.b00449da.js"
   ]
 }
