@@ -121,7 +121,9 @@ io.on("connection", (socket) => {
       // Player Score
       if (socket.id === player1) {
         score1++;
+        io.sockets.emit(EVENTS.CLICKED, "Player 1");
       } else if (socket.id === player2) {
+        io.sockets.emit(EVENTS.CLICKED, "Player 1");
         score2++;
       }
 
