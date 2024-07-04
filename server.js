@@ -2,7 +2,7 @@ const express = require("express");
 const http = require("http");
 const socketIo = require("socket.io");
 const cors = require("cors");
-const { EVENTS } = require("../constants/constants");
+const { EVENTS } = require("./constants/constants");
 
 const port = process.env.PORT || 4001;
 const app = express();
