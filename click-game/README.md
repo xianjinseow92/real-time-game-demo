@@ -1,6 +1,7 @@
-# Getting Started with Create React App
+# Click Game
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is just a basic README for the clicking game thingamajibs.
 
 ## Available Scripts
 
