@@ -29,7 +29,7 @@ let score2 = 0;
 let allSpectators = [];
 
 // Max Score
-const MAX_SCORE = 3;
+const MAX_SCORE = 5;
 
 const resetScores = () => {
   score1 = 0;

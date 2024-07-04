@@ -31,7 +31,7 @@ const BeginGame = () => {
           <Card title="Instructions">
             <Flex vertical>
               <Typography.Text style={{ marginBottom: "10px" }}>
-                {`The first player to click the button successfully 3 times first
+                {`The first player to click the button successfully 5 times first
               wins.`}
               </Typography.Text>
               <Typography.Text style={{ marginBottom: "10px" }}>
