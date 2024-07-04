@@ -45,7 +45,7 @@ io.on("connection", (socket) => {
         io.sockets.emit(EVENTS.UPDATE_SCORE, "Player 1 Scored");
       } else if (socket.id === player2) {
         score2++;
-        io.sockets.emit("Player 2 Scored");
+        io.sockets.emit(EVENTS.UPDATE_SCORE, "Player 2 Scored");
       }
     }
   });

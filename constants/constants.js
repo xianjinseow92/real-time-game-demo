@@ -1,4 +1,4 @@
-export const EVENTS = {
+const EVENTS = {
   CLICKED: "clicked",
   UPDATE_SCORE: "updateScore",
   ASSIGN_PLAYER: "assignPlayer",
@@ -8,4 +8,8 @@ export const EVENTS = {
   GAME_OVER: "gameOver",
   GAME_RESET: "gameReset",
   DISCONNECT: "disconnect",
+};
+
+module.exports = {
+  EVENTS,
 };
