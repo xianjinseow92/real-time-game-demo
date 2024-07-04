@@ -8,7 +8,11 @@ const BeginGame = () => {
   const navigate = useNavigate();
   return (
     <Layout style={{ minHeight: "100vh" }}>
-      <Header>Welcome</Header>
+      <Header style={{ backgroundColor: "white" }}>
+        <Typography.Title style={{ marginTop: "20px" }} level={4}>
+          Welcome
+        </Typography.Title>
+      </Header>
       <Content style={{ height: "80vh" }}>
         <Flex
           style={{ height: "100%" }}
