@@ -43,7 +43,7 @@ const GameBoard = ({ role }: { role: string }) => {
       });
 
       // Hide button
-      socket?.on(EVENTS.CLICKED, (player) => {
+      socket?.on(EVENTS.HIDE_BUTTON, (player) => {
         setIsVisible(false);
         message.warning(`${player} got the button!`);
       });

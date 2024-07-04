@@ -123,7 +123,7 @@ io.on("connection", (socket) => {
         score1++;
         io.sockets.emit(EVENTS.CLICKED, "Player 1");
       } else if (socket.id === player2) {
-        io.sockets.emit(EVENTS.CLICKED, "Player 1");
+        io.sockets.emit(EVENTS.CLICKED, "Player 2");
         score2++;
       }
 
