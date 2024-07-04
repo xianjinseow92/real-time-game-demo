@@ -15,4 +15,5 @@ export const EVENTS = {
   SHOW_BUTTON: "showButton",
 };
 
-export const socketURL = "http://localhost:4001"
+export const localWebSocketURL = "http://localhost:4001"
+export const socketURL = "https://clicker-websocket-e07f925b7d2b.herokuapp.com/"

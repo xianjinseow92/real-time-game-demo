@@ -38,6 +38,7 @@ const ClickGame = () => {
     socket?.connect();
 
     socket?.on(EVENTS.ASSIGN_PLAYER, (role) => {
+      console.log("Player assigned role: ", role);
       setMyRole(role);
     });
 
