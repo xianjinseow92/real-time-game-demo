@@ -1,5 +1,5 @@
 import { Button, Card, message, Modal, Result, Typography } from "antd";
-import { CSSProperties, useEffect, useRef, useState } from "react";
+import { CSSProperties, useEffect, useState } from "react";
 import { useSocket } from "../../../hooks/useSocket";
 import { EVENTS } from "../../../constants/constants";
 import { MehOutlined, QqOutlined, SmileOutlined } from "@ant-design/icons";
@@ -8,7 +8,6 @@ const GameBoard = ({ role }: { role: string }) => {
   const { socket } = useSocket();
   const [buttonStyle, setButtonStyle] = useState<CSSProperties>({});
   const [isVisible, setIsVisible] = useState<boolean>(true);
-  const buttonRef = useRef<HTMLButtonElement | null>(null);
 
   const [gameOver, setGameOver] = useState<{
     resultMessage: React.ReactNode;
@@ -23,9 +22,8 @@ const GameBoard = ({ role }: { role: string }) => {
   });
 
   const handleButtonClick = () => {
-    if (socket && buttonRef?.current) {
-      buttonRef.current.disabled = true;
-      setIsVisible(false); // IMMEDIATELY make button disappear
+    if (socket) {
+      setIsVisible(false);
       socket.emit(EVENTS.CLICKED);
     }
   };
@@ -35,9 +33,6 @@ const GameBoard = ({ role }: { role: string }) => {
       // Show button
       socket?.on(EVENTS.SHOW_BUTTON, (positionAndSize) => {
         setButtonStyle(positionAndSize);
-        if (buttonRef?.current) {
-          buttonRef.current.disabled = false;
-        }
 
         setIsVisible(true);
       });
@@ -51,7 +46,6 @@ const GameBoard = ({ role }: { role: string }) => {
       socket?.on(EVENTS.GAME_OVER, ({ winner, loser }) => {
         let resultMessage: React.ReactNode;
         let icon: React.ReactNode;
-        console.log("XJ game over role: ", role);
 
         if (role === winner) {
           resultMessage = (
@@ -111,7 +105,6 @@ const GameBoard = ({ role }: { role: string }) => {
           type="primary"
           danger
           disabled={role === "Spectator"}
-          ref={buttonRef}
         >
           CLICK MEEEE
         </Button>

@@ -56,7 +56,6 @@ const resetGame = (io) => {
  */
 // Manage Player Connections
 // Manage Game State (source of truth)
-// Mange Broadcast Events!
 io.on("connection", (socket) => {
   console.log("Someone's connected!");
 
@@ -71,7 +70,6 @@ io.on("connection", (socket) => {
   } else if (!player2) {
     player2 = socket.id;
     socket.emit(EVENTS.ASSIGN_PLAYER, "Player 2");
-    // Emit an event to all clients with player names
 
     io.sockets.emit(EVENTS.PLAYERS_UPDATED, {
       player1: "Player 1",

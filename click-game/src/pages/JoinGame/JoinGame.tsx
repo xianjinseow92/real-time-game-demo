@@ -34,10 +34,15 @@ const BeginGame = () => {
                 {`The first player to click the button successfully 5 times first
               wins.`}
               </Typography.Text>
-              <Typography.Text style={{ marginBottom: "10px" }}>
+              <Typography.Text style={{ marginBottom: "15px" }}>
                 {`最先成功点击按钮3次的玩家获胜。`}
               </Typography.Text>
-              <Typography.Text>{`Good luck! :)`}</Typography.Text>
+              <Typography.Text
+                style={{ marginBottom: "20px" }}
+              >{`Good luck! :)`}</Typography.Text>
+              <Typography.Text type="danger" style={{ fontSize: "8px" }}>
+                {`** Brace yourselves - There will be a surprise at the end. Losers, beware! :)))`}
+              </Typography.Text>
             </Flex>
           </Card>
         </Flex>
