@@ -4,6 +4,8 @@ import { ROUTE_NAMES } from "../../routes/routes";
 
 const { Header, Content, Footer } = Layout;
 
+const MAX_SCORE = 5;
+
 const BeginGame = () => {
   const navigate = useNavigate();
   return (
@@ -31,11 +33,11 @@ const BeginGame = () => {
           <Card title="Instructions">
             <Flex vertical>
               <Typography.Text style={{ marginBottom: "10px" }}>
-                {`The first player to click the button successfully 5 times first
+                {`The first player to click the button successfully ${MAX_SCORE} times first
               wins.`}
               </Typography.Text>
               <Typography.Text style={{ marginBottom: "15px" }}>
-                {`最先成功点击按钮3次的玩家获胜。`}
+                {`最先成功点击按钮${MAX_SCORE}次的玩家获胜。`}
               </Typography.Text>
               <Typography.Text
                 style={{ marginBottom: "20px" }}

@@ -23,7 +23,6 @@ const GameBoard = ({ role }: { role: string }) => {
 
   const handleButtonClick = () => {
     if (socket) {
-      setIsVisible(false);
       socket.emit(EVENTS.CLICKED);
     }
   };
